@@ -16,17 +16,17 @@ Similar documents are grouped into collections. So, we will have a single *notes
 In Firestore, like all other databases, data can be **C**reated, **R**ead (retrieved/queried), **U**pdated, and/or **D**eleted. These four [**CRUD**](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations can be quickly achieved in Firestore as implemented in **MyNotes**. You can create, query, edit, and delete notes. Well, if all the above is complex, just follow the below workshop instructions.
 
 ## Workshop Instructions 
-1. Create a Firebase project.
+**1.** Create a Firebase project.
   * Go to https://console.firebase.google.com
   * Create a new project, name it `MyNotes`
   * Customize the project ID as you wish. It will be the .web.app domain name, on which **MyNotes** will be available from.
   * Enable [Google Analytics](https://analytics.google.com/analytics/web/) so you can track website usage. 
 
-2. Enable Firestore
+**2.** Enable Firestore
   * In the Firebase project you just created, in the left hand menu, click Cloud Firestore.
   * Click create database, select start in development mode and leave the default location. It will take a few minutes to be enabled. 
 
-3. Setup Firebase on your computer.
+**3.** Setup Firebase on your computer.
   * Download and install NodeJS from https://nodejs.org/
   * In your terminal/command line, install Firebase, through NodeJS, by running the following command
     ```
@@ -37,7 +37,7 @@ In Firestore, like all other databases, data can be **C**reated, **R**ead (retri
     firebase login
     ```
 
-3. Get the code
+**4.** Get the code
   * The website code to make **MyNotes** work is available in this repo at https://github.com/DSC-AEFUNAI/mynotes
   * Get the code by either [Cloning](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository) (Recommended) or Downloading as ZIP
   * If you have [Git](https://git-scm.com/) installed on your computer, you can clone with the following command
@@ -45,7 +45,7 @@ In Firestore, like all other databases, data can be **C**reated, **R**ead (retri
     git clone https://github.com/DSC-AEFUNAI/mynotes
     ```
 
-4. Deploy **MyNotes** with Firebase.
+**5.** Deploy **MyNotes** with Firebase.
   * In your terminal/command line, change the current directory to the just cloned/downloaded `mynotes` folder. If you used the clone command above, run the following command to `mynotes` folder
     ```
     cd mynotes
