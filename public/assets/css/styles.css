@@ -16,6 +16,7 @@ body {
   --primary-500: #4285F4;
   --primary-200: #D2E3FC;
   --primary-100: #E8F0FE;
+  --danger: #EF4C45;
   --grey-900: #101010;
   --grey-800: #212121;
   --grey-700: #373737;
@@ -222,6 +223,11 @@ button.text-button:disabled {
   background-color: var(--primary-200);
   color: var(--primary-900);
   box-shadow: inset 0px 0px 4px var(--grey-500);
+}
+
+button#delete-note {
+  background-color: var(--danger);
+  margin-left: 8px;
 }
 
 @media (max-width: 767.98px) {

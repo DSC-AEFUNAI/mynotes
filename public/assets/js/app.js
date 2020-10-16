@@ -3,8 +3,10 @@ const appContainer = el('#app-container');
 const notesContainer = el('#notes-container');
 const editor = el('#editor');
 const noteForm = el('#note-form');
-const saveNoteButton = el('#save-note');
+const topicInput = el('input#topic');
+const subjectInput = el('input#subject');
 const detailsTextarea = el('textarea#details');
+const saveNoteButton = el('#save-note');
 
 const createNote = () => {
   editor.style.display = 'block';
@@ -14,8 +16,40 @@ const createNote = () => {
 const closeEditor = () => {
   noteForm.reset();
   saveNoteButton.disabled = false;
+  const deleteNoteButton = el('button#delete-note');
+  if (deleteNoteButton) {
+    deleteNoteButton.parentNode.removeChild(deleteNoteButton);
+  }
   editor.style.display = 'none';
   appContainer.classList.remove('covered');
+};
+
+const populateEditor = (note) => {
+  topicInput.value = note.topic;
+  subjectInput.value = note.subject;
+  detailsTextarea.value = note.details;
+};
+
+const addDeleteButtonToEditor = (noteId) => {
+  let deleteNoteButton = el('button#delete-note');
+  if (deleteNoteButton) {
+    if (deleteNoteButton.getAttribute('note-id') != noteId) {
+      deleteNoteButton.setAttribute('note-id', noteId);
+    }
+  } else {
+    deleteNoteButton = document.createElement('button');
+    deleteNoteButton.id = 'delete-note';
+    deleteNoteButton.classList.add('text-button');
+    deleteNoteButton.textContent = 'Delete';
+    deleteNoteButton.setAttribute('note-id', noteId);
+    noteForm.lastElementChild.append(deleteNoteButton);
+    deleteNoteButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      return firebase.firestore().doc(`notes/${noteId}`).delete()
+        .then(closeEditor())
+        .catch((error) => alert(error.message));
+    })
+  }
 };
 
 const displayNote = (id, note) => {
@@ -51,6 +85,11 @@ const displayNote = (id, note) => {
     notesContainer.insertBefore(noteDiv, notesContainer.children[0]);
     notesContainer.scrollTo(0, 0);
   }
+  noteDiv.lastElementChild.lastElementChild.addEventListener('click', () => {
+    createNote();
+    populateEditor(note);
+    addDeleteButtonToEditor(id);
+  });
 };
 
 const loadNotes = () => {
@@ -93,13 +132,23 @@ detailsTextarea.addEventListener('keyup', () => {
 noteForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const formBody = Object.fromEntries(new FormData(noteForm));
-  formBody.timestamp = firebase.firestore.FieldValue.serverTimestamp();
   saveNoteButton.disabled = true;
-  firebase.firestore().collection('notes').add(formBody)
-    .then(closeEditor)
-    .catch((error) => {
-      alert(error.message);
-    });
+  const deleteNoteButton = el('button#delete-note');
+  if (deleteNoteButton) {
+    const noteId = deleteNoteButton.getAttribute('note-id');
+    return firebase.firestore().doc(`notes/${noteId}`).update(formBody)
+      .then(() => {
+        saveNoteButton.disabled = false;
+        alert('Changes Saved Successfully');
+      }).catch((error) => alert(error.message));
+  } else {
+    formBody.timestamp = firebase.firestore.FieldValue.serverTimestamp();
+    return firebase.firestore().collection('notes').add(formBody)
+      .then(closeEditor)
+      .catch((error) => {
+        alert(error.message);
+      });
+  }
 });
 
 loadNotes();
