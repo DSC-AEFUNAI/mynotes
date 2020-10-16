@@ -27,6 +27,7 @@ body {
   --grey-100: #EAEAEA;
   --white: #FFF;
   color: var(--grey-700);
+  background-color: var(--primary-100);
 }
 
 main {
@@ -35,6 +36,7 @@ main {
   width: 100%;
   max-width: 1400px;
   margin: auto;
+  background-color: var(--white);
 }
 
 #app-container {
@@ -50,10 +52,11 @@ main {
 
 #notes-container {
   width: 100%;
-  max-width: 992px;
-  height: 100%;
+  max-width: 768px;
+  height: calc(100% - 64px);
   margin: 0px auto;
-  position: relative;
+  padding: 16px 0px;
+  overflow: auto;
 }
 
 h1#heading {
@@ -61,6 +64,14 @@ h1#heading {
   font-weight: bold;
   color: var(--grey-900);
   text-align: center;
+}
+
+.note {
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px var(--primary-700);
+  padding: 16px;
+  margin: 16px auto;
+  max-width: 512px;
 }
 
 .button-container {
@@ -78,12 +89,12 @@ button.round-button {
   box-shadow: 0px 2px 6px var(--grey-400);
   width: 48px;
   height: 48px;
-  position: absolute;
 }
 
 button#create-note {
+  position: fixed;
   bottom: 32px;
-  right: 16px;
+  right: 32px;
 }
 
 #editor {
@@ -92,11 +103,13 @@ button#create-note {
   z-index: 3;
   display: none;
   background-color: var(--white);
+  overflow: auto;
 }
 
 button#close-editor {
   top: 16px;
   right: 16px;
+  position: absolute;
 }
 
 form#note-form {
@@ -182,10 +195,6 @@ button.text-button:disabled {
     margin: 16px auto;
   }
 
-  button#create-note {
-    right: 32px;
-  }
-
   #editor {
     right: 0;
     top: 0;
@@ -194,15 +203,15 @@ button.text-button:disabled {
     height: 100%;
     box-shadow: -3px 0px 12px var(--grey-500);
   }
+
+  button#create-note {
+    right: calc(((100vw - 768px) / 2) + 32px);
+    bottom: 64px;
+  }
 }
 
 @media (min-width: 1400px) {
-  body {
-    background-color: var(--primary-100);
-  }
-
   main {
-    background-color: var(--white);
     position: relative;
     box-shadow: 0px 0px 12px var(--grey-300);
     border-radius: 16px;
@@ -214,14 +223,19 @@ button.text-button:disabled {
 }
 
 @media (min-height: 768px) {
-  body {
-    background-color: var(--primary-100);
-  }
-
   main {
+    position: relative;
     background-color: var(--white);
     box-shadow: 0px 0px 12px var(--grey-300);
     border-radius: 16px;
+  }
+
+  button#create-note {
+    bottom: calc(((100vh - 768px) / 2) + 64px);
+  }
+
+  #editor {
+    position: absolute;
   }
 }
 
