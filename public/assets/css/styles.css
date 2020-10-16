@@ -66,6 +66,17 @@ h1#heading {
   text-align: center;
 }
 
+p#create-note-message {
+  text-align: center;
+  color: var(--grey-600);
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  height: 90%;
+  max-width: 384px;
+  margin: 0 auto;
+}
+
 .note {
   border-radius: 8px;
   box-shadow: 0px 0px 4px var(--primary-700);

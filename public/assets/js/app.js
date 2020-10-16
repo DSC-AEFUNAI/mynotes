@@ -65,6 +65,19 @@ const loadNotes = () => {
         displayNote(change.doc.id, change.doc.data());
       }
     });
+    let createNoteMessage = el('#create-note-message');
+    if (snapshot.empty) {
+      if (!createNoteMessage) {
+        createNoteMessage = document.createElement('p');
+        createNoteMessage.id = 'create-note-message';
+        createNoteMessage.innerHTML = 'Welcome to MyNotes!!!<br>You seem not to have any saved notes. Click the + (plus) icon down below and start taking down notes.';
+        notesContainer.insertBefore(createNoteMessage, notesContainer.children[notesContainer.childElementCount - 1]);
+      }
+    } else {
+      if (createNoteMessage) {
+        createNoteMessage.parentNode.removeChild(createNoteMessage);
+      }
+    }
   });
 };
 
