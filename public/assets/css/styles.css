@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  display: flex;
+  font-size: 16px;
+  --grey-900: #101010;
+  --grey-800: #212121;
+  --grey-700: #373737;
+  --grey-600: #585858;
+  --grey-500: #7A7A7A;
+  --grey-400: #A2A2A2;
+  --grey-300: #C3C3C3;
+  --grey-200: #DADADA;
+  --grey-100: #EAEAEA;
+  --white: #FFF;
+  color: var(--grey-700);
+}
+
+main {
+  height: 100%;
+  max-height: 768px;
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+}
+
+#app-container {
+  height: 100%;
+  width: 100%;
+  padding: 24px 16px;
+}
+
+#app-container.covered {
+  box-shadow: inset 0 0 0 5000px var(--grey-100);
+}
+
+#notes-container {
+  width: 100%;
+  max-width: 992px;
+  height: 100%;
+  margin: 0px auto;
+  position: relative;
+}
+
+h1#heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--grey-900);
+  text-align: center;
+}
+
+.button-container {
+  text-align: right;
+  padding: 8px;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+button.round-button {
+  border-radius: 50%;
+  box-shadow: 0px 2px 6px var(--grey-400);
+  width: 48px;
+  height: 48px;
+  position: absolute;
+}
+
+button#create-note {
+  bottom: 32px;
+  right: 16px;
+}
+
+#editor {
+  position: fixed;
+  bottom: 0;
+  z-index: 3;
+  display: none;
+  background-color: var(--white);
+}
+
+button#close-editor {
+  top: 16px;
+  right: 16px;
+}
+
+@media (max-width: 767.98px) {
+  #editor {
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 75%;
+    box-shadow: 0px -3px 12px var(--grey-500);
+  }
+}
+
+@media (min-width: 768px) {
+  #notes-container {
+    box-shadow: 0px 0px 6px var(--grey-300);
+    border-radius: 8px;
+    margin: 16px auto;
+  }
+
+  button#create-note {
+    right: 32px;
+  }
+
+  #editor {
+    right: 0;
+    top: 0;
+    width: 75%;
+    max-width: 768px;
+    height: 100%;
+    box-shadow: -3px 0px 12px var(--grey-500);
+  }
+}
+
+@media (min-width: 1400px) {
+  main {
+    position: relative;
+    box-shadow: 0px 0px 12px var(--grey-300);
+    border-radius: 16px;
+  }
+
+  #editor {
+    position: absolute;
+  }
+}
+
+@media (min-height: 768px) {
+  main {
+    box-shadow: 0px 0px 12px var(--grey-300);
+    border-radius: 16px;
+  }
+}
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="/assets/css/styles.css" type="text/css" rel="stylesheet">
+<meta name="keywords" content="notes, take down notes, write notes, firestore, firebase, DSC AE-FUNAI">
+<meta name="description" content="A simple web app for writing/taking down notes using Firestore from Firebase.">
+<meta name="theme-color" content="#fff">
+<title>MyNotes App</title>
+</head>
+<body>
+<main>
+  <div id="app-container">
+    <h1 id="heading" class="covered">MyNotes</h1>
+    <div id="notes-container">
+      <div class="button-container">
+        <button id="create-note" onclick="createNote()" class="round-button">
+          <img src="/assets/svg-icons/create.svg" alt="Create Note" title="Create Note">
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="editor">
+    <div class="button-container">
+      <button id="close-editor" onclick="closeEditor()" class="round-button">
+        <img src="/assets/svg-icons/close.svg" alt="Close" title="Close">
+      </button>
+    </div>
+  </div>
+</main>
+<script src="/assets/js/app.js"></script>
+</body>
+</html>
