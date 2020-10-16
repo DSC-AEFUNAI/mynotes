@@ -55,7 +55,7 @@ main {
   max-width: 768px;
   height: calc(100% - 64px);
   margin: 0px auto;
-  padding: 16px 0px;
+  padding: 16px 8px;
   overflow: auto;
 }
 
@@ -70,8 +70,35 @@ h1#heading {
   border-radius: 8px;
   box-shadow: 0px 0px 4px var(--primary-700);
   padding: 16px;
-  margin: 16px auto;
+  margin: 24px auto;
   max-width: 512px;
+}
+
+.note .note-group {
+  margin-bottom: 8px;
+}
+
+.note .note-group span.key {
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 1.125rem;
+  color: var(--grey-600);
+}
+
+.note .note-group span.value {
+  font-weight: bold;
+  font-size: 1.125rem;
+  color: var(--grey-800);
+}
+
+.note .note-group span#details-value {
+  margin-top: 4px;
+}
+
+.note p.date {
+  font-size: 0.75rem;
+  color: var(--grey-500);
+  margin-bottom: 8px;
 }
 
 .button-container {
@@ -82,19 +109,20 @@ h1#heading {
 button {
   background: none;
   border: none;
+  font-family: 'Roboto', sans-serif
 }
 
 button.round-button {
   border-radius: 50%;
-  box-shadow: 0px 2px 6px var(--grey-400);
-  width: 48px;
-  height: 48px;
+  box-shadow: 2px 2px 6px var(--grey-400);
 }
 
 button#create-note {
   position: fixed;
   bottom: 32px;
   right: 32px;
+  width: 64px;
+  height: 64px;
 }
 
 #editor {
@@ -107,9 +135,11 @@ button#create-note {
 }
 
 button#close-editor {
+  position: absolute;
   top: 16px;
   right: 16px;
-  position: absolute;
+  width: 48px;
+  height: 48px;
 }
 
 form#note-form {
@@ -131,6 +161,7 @@ form#note-form {
   margin-bottom: 32px;
   font-size: 1rem;
   outline: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 .input-container input {
