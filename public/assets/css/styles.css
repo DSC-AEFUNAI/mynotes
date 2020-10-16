@@ -138,6 +138,10 @@ form#note-form {
   height: 32px;
 }
 
+.input-container textarea {
+  line-height: 1.125rem;
+}
+
 .input-container label {
   margin-bottom: 8px;
   font-size: 1.125rem;
