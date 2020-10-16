@@ -23,8 +23,8 @@ In Firestore, like all other databases, data can be **C**reated, **R**ead (retri
   * Enable [Google Analytics](https://analytics.google.com/analytics/web/) so you can track website usage. 
 
 2. Enable Firestore
-  * In the Firebase project you just created, in the left hand menu, click Firestore.
-  * Click Enable. Leave the default location and start in development mode. It will take a few minutes to be enabled. 
+  * In the Firebase project you just created, in the left hand menu, click Cloud Firestore.
+  * Click create database, select start in development mode and leave the default location. It will take a few minutes to be enabled. 
 
 3. Setup Firebase on your computer.
   * Download and install NodeJS from https://nodejs.org/

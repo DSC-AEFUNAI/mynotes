@@ -28,8 +28,29 @@
         <img src="/assets/svg-icons/close.svg" alt="Close" title="Close">
       </button>
     </div>
+    <form id="note-form">
+      <div class="input-container">
+        <input type="text" name="topic" id="topic" minlength="2" placeholder="Topic" autocomplete="off">
+        <label for="topic">Topic</label>
+      </div>
+      <div class="input-container">
+        <input type="text" name="subject" id="subject" minlength="2" placeholder="Subject" autocomplete="off">
+        <label for="subject">Subject</label>
+      </div>
+      <div class="input-container">
+        <textarea name="details" id="details" rows="4" minlength="10"></textarea>
+        <label for="details">Details</label>
+      </div>
+      <div class="button-container">
+        <button type="submit" id="save-note" class="text-button">Save</button>
+      </div>
+    </form>
   </div>
 </main>
 <script src="/assets/js/app.js"></script>
+<script src="/__/firebase/7.22.1/firebase-app.js"></script>
+<script src="/__/firebase/7.22.1/firebase-analytics.js"></script>
+<script src="/__/firebase/7.22.1/firebase-firestore.js"></script>
+<script src="/__/firebase/init.js"></script>
 </body>
 </html>
